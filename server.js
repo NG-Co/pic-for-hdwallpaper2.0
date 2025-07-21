@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const app = express();
 const PORT = 3000;
@@ -11,6 +12,14 @@ const JSON_FILE_PATH = path.join(__dirname, 'wallpaper.json');
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname)); // Serve static files from current directory
+
+// Performance monitoring for ID generation
+let idGenerationStats = {
+    totalGenerated: 0,
+    collisionAttempts: 0,
+    maxCollisionRetries: 0,
+    lastReset: new Date().toISOString()
+};
 
 // Initialize wallpaper.json if it doesn't exist or is empty
 function initializeJsonFile() {
@@ -34,7 +43,14 @@ function initializeJsonFile() {
 function readWallpapers() {
     try {
         const data = fs.readFileSync(JSON_FILE_PATH, 'utf8');
-        return JSON.parse(data);
+        const wallpapers = JSON.parse(data);
+        
+        // Performance warning for large datasets
+        if (wallpapers.length > 1000) {
+            console.warn(`⚠️  Large dataset detected: ${wallpapers.length} wallpapers. Consider migrating to a proper database for better performance.`);
+        }
+        
+        return wallpapers;
     } catch (error) {
         console.error('Error reading wallpapers:', error);
         return [];
@@ -54,10 +70,32 @@ function writeWallpapers(wallpapers) {
 
 // Routes
 
-// Get all wallpapers
+// Get all wallpapers (with pagination support)
 app.get('/api/wallpapers', (req, res) => {
-    const wallpapers = readWallpapers();
-    res.json(wallpapers);
+    try {
+        const wallpapers = readWallpapers();
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 50; // Default 50 per page
+        const startIndex = (page - 1) * limit;
+        const endIndex = startIndex + limit;
+        
+        const paginatedWallpapers = wallpapers.slice(startIndex, endIndex);
+        
+        res.json({
+            wallpapers: paginatedWallpapers,
+            pagination: {
+                currentPage: page,
+                totalPages: Math.ceil(wallpapers.length / limit),
+                totalItems: wallpapers.length,
+                itemsPerPage: limit,
+                hasNextPage: endIndex < wallpapers.length,
+                hasPreviousPage: page > 1
+            }
+        });
+    } catch (error) {
+        console.error('Error getting wallpapers:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
 
 // Add a new wallpaper
@@ -90,13 +128,42 @@ app.post('/api/wallpapers', (req, res) => {
             });
         }
 
-        // Generate unique ID
+        // Generate cryptographically secure unique ID
+        function generateSecureId() {
+            // Use crypto.randomBytes for cryptographically secure randomness
+            const bytes = crypto.randomBytes(16);
+            
+            // Format as UUIDv4
+            const hex = bytes.toString('hex');
+            return [
+                hex.substring(0, 8),
+                hex.substring(8, 12),
+                '4' + hex.substring(13, 16), // Version 4
+                ((parseInt(hex.substring(16, 17), 16) & 0x3) | 0x8).toString(16) + hex.substring(17, 20), // Variant bits
+                hex.substring(20, 32)
+            ].join('-');
+        }
+
+        // Ensure ID uniqueness (highly unlikely with UUIDv4, but good practice)
         function generateUniqueId() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                const r = Math.random() * 16 | 0;
-                const v = c === 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
+            let id;
+            let attempts = 0;
+            const maxAttempts = 10; // Safety limit
+            
+            do {
+                id = generateSecureId();
+                attempts++;
+                idGenerationStats.collisionAttempts += attempts > 1 ? 1 : 0;
+                
+                if (attempts > maxAttempts) {
+                    throw new Error('Failed to generate unique ID after maximum attempts');
+                }
+            } while (wallpapers.some(w => w.id === id));
+            
+            idGenerationStats.totalGenerated++;
+            idGenerationStats.maxCollisionRetries = Math.max(idGenerationStats.maxCollisionRetries, attempts - 1);
+            
+            return id;
         }
 
         // Create new wallpaper object
@@ -206,6 +273,56 @@ app.delete('/api/wallpapers', (req, res) => {
         }
     } catch (error) {
         console.error('Error clearing wallpapers:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+// Get system statistics and health info
+app.get('/api/stats', (req, res) => {
+    try {
+        const wallpapers = readWallpapers();
+        const fileStats = fs.statSync(JSON_FILE_PATH);
+        
+        res.json({
+            database: {
+                totalWallpapers: wallpapers.length,
+                fileSize: `${(fileStats.size / 1024).toFixed(2)} KB`,
+                lastModified: fileStats.mtime.toISOString()
+            },
+            idGeneration: {
+                ...idGenerationStats,
+                collisionRate: idGenerationStats.totalGenerated > 0 
+                    ? (idGenerationStats.collisionAttempts / idGenerationStats.totalGenerated * 100).toFixed(4) + '%'
+                    : '0%'
+            },
+            performance: {
+                uptime: process.uptime(),
+                memoryUsage: process.memoryUsage(),
+                nodeVersion: process.version
+            },
+            server: {
+                environment: process.env.NODE_ENV || 'development',
+                timestamp: new Date().toISOString()
+            }
+        });
+    } catch (error) {
+        console.error('Error getting stats:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+// Reset ID generation statistics (for monitoring/debugging)
+app.post('/api/stats/reset', (req, res) => {
+    try {
+        idGenerationStats = {
+            totalGenerated: 0,
+            collisionAttempts: 0,
+            maxCollisionRetries: 0,
+            lastReset: new Date().toISOString()
+        };
+        res.json({ message: 'ID generation statistics reset successfully', stats: idGenerationStats });
+    } catch (error) {
+        console.error('Error resetting stats:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });

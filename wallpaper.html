@@ -7,6 +7,32 @@
     <!-- Tailwind CSS CDN for easy styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+
+        /* Basic button  */
+    .custom-button {
+        background-color: rgb(21, 137, 239);
+        color: white;
+        height: 50px;
+        width: 150px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .custom-button:hover {
+        background-color: rgb(17, 117, 206);
+        transform: scale(1.03);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-button:active {
+        transform: scale(0.98);
+    }
+
+
         /* Custom font for a clean look */
         body {
             font-family: 'Inter', sans-serif;
@@ -94,19 +120,40 @@
                 </label>
                 <select id="category" name="category" required
                         class="shadow border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
-                    <option value="">Select a Category</option>
-                    <option value="Floral and Botanical">Floral and Botanical</option>
-                    <option value="Majestic">Majestic</option>
-                    <option value="Textured and Embossed">Textured and Embossed</option>
-                    <option value="Murals and Scenic">Murals and Scenic</option>
-                    <option value="Geometric">Geometric</option>
-                    <option value="Metallics and Glam">Metallics and Glam</option>
-                    <option value="Abstract">Abstract</option>
-                    <option value="Vintage and Retro">Vintage and Retro</option>
-                    <option value="Kids and Themed">Kids and Themed</option>
-                    <option value="Peel and Stick">Peel and Stick</option>
-                    <option value="Non-Woven">Non-Woven</option>
-                    <option value="Memes">Memes</option>
+                   <option value="">Select a Category</option>
+<option value="Abstract">Abstract</option>
+<option value="Animal">Animal</option>
+<option value="Anime">Anime</option>
+<option value="Arts">Arts</option>
+<option value="Astronomy">Astronomy</option>
+<option value="B&W">B&W</option>
+<option value="Babies & Kids">Babies & Kids</option>
+<option value="Birds">Birds</option>
+<option value="Bokeh">Bokeh</option>
+<option value="Comics">Comics</option>
+<option value="City & Buildings">City & Buildings</option>
+<option value="Colorful">Colorful</option>
+<option value="Dusk">Dusk</option>
+<option value="Fashion">Fashion</option>
+<option value="Festival">Festival</option>
+<option value="Flower">Flower</option>
+<option value="Food & Drink">Food & Drink</option>
+<option value="Geometric">Geometric</option>
+<option value="Girly">Girly</option>
+<option value="Love">Love</option>
+<option value="Majestic">Majestic</option>
+<option value="Memes">Memes</option>
+<option value="Mountains">Mountains</option>
+<option value="Movie">Movie</option>
+<option value="Movie">Music</option>
+<option value="Nature">Nature</option>
+<option value="Night">Night</option>
+<option value="Ocean">Ocean</option>
+<option value="Quotes">Quotes</option>
+<option value="Season">Season</option>
+<option value="Vehicles">Vehicles</option>
+<option value="Vintage and Retro">Vintage and Retro</option>
+
                 </select>
             </div>
 
@@ -119,9 +166,10 @@
             </div>
 
             <div class="md:col-span-2 flex justify-center mt-4">
-                <button type="submit" class="btn btn-primary w-full md:w-auto">
-                    Add Wallpaper
-                </button>
+           <button type="submit" class="custom-button">
+    Add Wallpaper
+</button>
+
             </div>
         </form>
 
@@ -276,14 +324,22 @@
         }
 
         // Function to load wallpapers from server
-        async function loadWallpapers() {
+        async function loadWallpapers(page = 1, limit = 50) {
             try {
                 updateStatus('Loading data...', false);
-                const response = await fetch(`${API_BASE}/wallpapers`);
+                const response = await fetch(`${API_BASE}/wallpapers?page=${page}&limit=${limit}`);
                 if (response.ok) {
-                    wallpaperData = await response.json();
+                    const data = await response.json();
+                    wallpaperData = data.wallpapers || data; // Handle both new and old API responses
+                    
                     updateJsonPreview();
-                    updateStatus(`Connected • ${wallpaperData.length} wallpapers loaded`);
+                    
+                    // Display pagination info if available
+                    if (data.pagination) {
+                        updateStatus(`Connected • Page ${data.pagination.currentPage}/${data.pagination.totalPages} • ${data.pagination.totalItems} total wallpapers`);
+                    } else {
+                        updateStatus(`Connected • ${wallpaperData.length} wallpapers loaded`);
+                    }
                 } else {
                     console.error('Failed to load wallpapers');
                     updateStatus('Failed to load data', false);
