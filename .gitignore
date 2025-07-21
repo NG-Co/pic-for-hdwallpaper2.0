@@ -190,7 +190,7 @@ $RECYCLE.BIN/
 
 # Project-specific files
 # Keep wallpaper.json out of version control (data file)
-wallpaper.json
+
 
 # Backup files
 *.bak
