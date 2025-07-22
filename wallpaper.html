@@ -96,6 +96,25 @@
         #imagePreviewContainer {
             transition: all 0.3s ease-in-out;
         }
+        
+        /* Premium badge styling */
+        .premium-badge {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .premium-badge.standard {
+            background-color: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .premium-badge.premium {
+            background-color: #fbbf24;
+            color: #92400e;
+        }
     </style>
 </head>
 <body class="p-4 sm:p-8">
@@ -166,6 +185,17 @@
                           class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"></textarea>
             </div>
 
+            <div class="md:col-span-2">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="premium" name="premium" 
+                           class="w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                    <span class="text-gray-700 text-sm font-bold">
+                        Premium Wallpaper
+                        <span class="text-gray-500 font-normal text-xs block">Check this box to mark as premium content</span>
+                    </span>
+                </label>
+            </div>
+
             <div class="md:col-span-2 flex justify-center mt-4">
            <button type="submit" class="custom-button">
     Add Wallpaper
@@ -203,6 +233,12 @@
                             <span id="previewCategory" class="text-gray-800 ml-2">Not selected</span>
                         </div>
                         <div>
+                            <span class="font-semibold text-gray-600">Premium:</span>
+                            <span id="previewPremium" class="ml-2">
+                                <span class="premium-badge">Standard</span>
+                            </span>
+                        </div>
+                        <div class="md:col-span-2">
                             <span class="font-semibold text-gray-600">Timestamp:</span>
                             <span id="previewTimestamp" class="text-gray-500 ml-2 text-xs">Will be auto-generated</span>
                         </div>
@@ -292,6 +328,7 @@
         const previewUrl = document.getElementById('previewUrl');
         const previewId = document.getElementById('previewId');
         const previewTimestamp = document.getElementById('previewTimestamp');
+        const previewPremium = document.getElementById('previewPremium');
         
         // Image preview elements
         const imagePreviewContainer = document.getElementById('imagePreviewContainer');
@@ -303,6 +340,7 @@
         const urlInput = document.getElementById('wallpaperUrl');
         const categorySelect = document.getElementById('category');
         const descriptionInput = document.getElementById('description');
+        const premiumCheckbox = document.getElementById('premium');
 
         // API base URL
         const API_BASE = '/api';
@@ -361,6 +399,7 @@
             const url = document.getElementById('wallpaperUrl').value;
             const category = document.getElementById('category').value;
             const description = document.getElementById('description').value;
+            const premium = document.getElementById('premium').checked;
 
             // Show loading state
             const submitButton = event.target.querySelector('button[type="submit"]');
@@ -378,7 +417,8 @@
                     body: JSON.stringify({
                         url: url,
                         category: category,
-                        description: description
+                        description: description,
+                        premium: premium
                     })
                 });
 
@@ -512,6 +552,7 @@
             const url = urlInput.value.trim();
             const category = categorySelect.value;
             const description = descriptionInput.value.trim();
+            const premium = premiumCheckbox.checked;
             
             // Show/hide preview section based on input
             const hasInput = url || category || description;
@@ -536,6 +577,16 @@
             previewDescription.textContent = description || 'No description entered';
             previewUrl.textContent = url || 'No URL entered';
             previewTimestamp.textContent = new Date().toISOString();
+            
+            // Update premium status
+            const premiumBadge = previewPremium.querySelector('.premium-badge');
+            if (premium) {
+                premiumBadge.textContent = 'Premium';
+                premiumBadge.className = 'premium-badge premium';
+            } else {
+                premiumBadge.textContent = 'Standard';
+                premiumBadge.className = 'premium-badge standard';
+            }
             
             // Generate a sample UUID for preview (this won't be the actual ID)
             const sampleId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -650,6 +701,7 @@
         urlInput.addEventListener('input', updateLivePreview);
         categorySelect.addEventListener('change', updateLivePreview);
         descriptionInput.addEventListener('input', updateLivePreview);
+        premiumCheckbox.addEventListener('change', updateLivePreview);
 
         // Update preview timestamp every second to show live time
         setInterval(() => {

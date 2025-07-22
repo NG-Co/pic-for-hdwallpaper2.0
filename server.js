@@ -101,7 +101,7 @@ app.get('/api/wallpapers', (req, res) => {
 // Add a new wallpaper
 app.post('/api/wallpapers', (req, res) => {
     try {
-        const { url, category, description } = req.body;
+        const { url, category, description, premium } = req.body;
         
         // Validate required fields
         if (!url || !category || !description) {
@@ -172,7 +172,8 @@ app.post('/api/wallpapers', (req, res) => {
             url: trimmedUrl,
             category: category.trim(),
             description: description.trim(),
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            premium: premium || false // Default to false if not provided
         };
 
         // Add new wallpaper
