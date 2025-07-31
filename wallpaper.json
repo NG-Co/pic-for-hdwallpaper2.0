@@ -440,18 +440,10 @@
     "premium": false
   },
   {
-    "id": "df40bd4f-3d27-4487-a8b6-2d7065a4304f",
-    "url": "https://cdn.pixabay.com/photo/2024/09/21/15/07/eiffel-tower-9064240_1280.jpg",
-    "category": "Country",
-    "description": "eiffel tower france",
-    "timestamp": "2025-07-31T04:20:58.660Z",
-    "premium": false
-  },
-  {
     "id": "ef1a55ea-6c6f-42a1-89ec-2343d3f79036",
     "url": "https://cdn.pixabay.com/photo/2022/05/08/18/13/cat-7182671_1280.jpg",
     "category": "Anime",
-    "description": "cat-outdoors-gray-cat-feline",
+    "description": "cat outdoors gray cat feline",
     "timestamp": "2025-07-31T04:25:28.342Z",
     "premium": false
   },
@@ -469,14 +461,6 @@
     "category": "Abstract",
     "description": "plane",
     "timestamp": "2025-07-31T04:28:23.426Z",
-    "premium": false
-  },
-  {
-    "id": "30812e48-b994-45f3-8322-894eb1a47895",
-    "url": "https://cdn.pixabay.com/photo/2022/10/23/14/20/nature-wallpaper-7541423_1280.jpg",
-    "category": "Season",
-    "description": "autumn",
-    "timestamp": "2025-07-31T04:28:55.974Z",
     "premium": false
   },
   {
@@ -504,16 +488,8 @@
     "premium": false
   },
   {
-    "id": "2309f55c-9c85-4aec-a957-8e5f73be3ed8",
-    "url": "https://cdn.pixabay.com/photo/2015/03/26/11/06/flowers-692433_1280.jpg",
-    "category": "Flower",
-    "description": "flowers spring cosmos field botany",
-    "timestamp": "2025-07-31T04:33:35.941Z",
-    "premium": false
-  },
-  {
     "id": "f2a44a35-1c94-4efc-912f-4058f4c5ce8c",
-    "url": "https://pixabay.com/illustrations/anime-uchiha-japanese-ninja-7898569/",
+    "url": "https://cdn.pixabay.com/photo/2023/04/04/06/08/anime-7898569_1280.png",
     "category": "Anime",
     "description": "itachi",
     "timestamp": "2025-07-31T04:41:10.025Z",
@@ -565,7 +541,7 @@
     "category": "Anime",
     "description": "dragon ballz trunks",
     "timestamp": "2025-07-31T04:49:39.422Z",
-    "premium": false
+    "premium": true
   },
   {
     "id": "703200b0-453b-4481-9198-4cdec8711203",
@@ -582,30 +558,6 @@
     "description": "samurai japanese warrior silhouette",
     "timestamp": "2025-07-31T04:55:26.855Z",
     "premium": true
-  },
-  {
-    "id": "cca148b0-381c-4cdf-841c-95f3fe3bad46",
-    "url": "https://cdn.pixabay.com/photo/2024/12/31/02/55/ai-generated-9301431_1280.jpg",
-    "category": "Anime",
-    "description": "samurai",
-    "timestamp": "2025-07-31T04:56:11.154Z",
-    "premium": false
-  },
-  {
-    "id": "1b48f350-6c6f-48bf-a771-e29f7b500e58",
-    "url": "https://cdn.pixabay.com/photo/2023/04/11/00/58/desert-7915031_1280.jpg",
-    "category": "Abstract",
-    "description": "desert sand",
-    "timestamp": "2025-07-31T05:03:23.001Z",
-    "premium": false
-  },
-  {
-    "id": "38cb5e78-e6fb-46aa-ace3-41f29ba351bf",
-    "url": "https://cdn.pixabay.com/photo/2019/12/17/17/43/lightning-4702140_1280.jpg",
-    "category": "Abstract",
-    "description": "lighting rain thunderstorm",
-    "timestamp": "2025-07-31T05:04:47.366Z",
-    "premium": false
   },
   {
     "id": "a6e0b76e-9a7e-45b8-94d1-4632a8f66e5a",
@@ -640,22 +592,6 @@
     "premium": false
   },
   {
-    "id": "0e579ae3-2568-4a14-afad-5de55159bb06",
-    "url": "https://cdn.pixabay.com/photo/2022/08/05/20/24/alps-7367539_1280.jpg",
-    "category": "Cars",
-    "description": "car on a highway",
-    "timestamp": "2025-07-31T05:15:19.679Z",
-    "premium": false
-  },
-  {
-    "id": "7f8adffe-13b1-4558-b4db-c5b4fb846158",
-    "url": "https://cdn.pixabay.com/photo/2022/10/11/18/53/autumn-7514966_1280.jpg",
-    "category": "Mountains",
-    "description": "autumn road and mountain",
-    "timestamp": "2025-07-31T05:18:07.700Z",
-    "premium": false
-  },
-  {
     "id": "3a2bddb7-4efc-456c-ad1b-e9f3c76e61fd",
     "url": "https://cdn.pixabay.com/photo/2016/09/01/22/57/alpine-1637941_1280.jpg",
     "category": "Mountains",
@@ -664,11 +600,19 @@
     "premium": false
   },
   {
-    "id": "2c9b3bc5-78f5-4135-812a-fec42889cf42",
-    "url": "https://cdn.pixabay.com/photo/2022/04/05/15/30/road-7113873_1280.jpg",
+    "id": "c5575d04-b73e-4638-9291-b499fa41cada",
+    "url": "https://images.pexels.com/photos/9271955/pexels-photo-9271955.jpeg?_gl=1*1tumbz3*_ga*MTMyNTc1NjY4Ny4xNzUzMjAzNTQ0*_ga_8JE65Q40S6*czE3NTM5NjExMDYkbzgkZzEkdDE3NTM5NjExMzYkajMwJGwwJGgw",
     "category": "Mountains",
-    "description": "serpentines mountain road",
-    "timestamp": "2025-07-31T05:23:16.582Z",
+    "description": "scenic view of mountains during dawn",
+    "timestamp": "2025-07-31T11:26:27.487Z",
+    "premium": true
+  },
+  {
+    "id": "77f237cb-7043-4ca4-a283-afc27b006621",
+    "url": "https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg?_gl=1*fv2dje*_ga*MTMyNTc1NjY4Ny4xNzUzMjAzNTQ0*_ga_8JE65Q40S6*czE3NTM5NjExMDYkbzgkZzEkdDE3NTM5NjEyNzkkajQ0JGwwJGgw",
+    "category": "Mountains",
+    "description": "green mountain with river in the middle",
+    "timestamp": "2025-07-31T11:28:31.540Z",
     "premium": false
   }
 ]
