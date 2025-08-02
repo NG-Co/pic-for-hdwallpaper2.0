@@ -200,14 +200,6 @@
     "premium": false
   },
   {
-    "id": "41efe0ab-8d03-4c34-be55-a24cf122c38b",
-    "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01k0z5699jenxsq732mhrwdrj4%2F1753392507_img_1.webp?st=2025-07-26T01%3A53%3A38Z&se=2025-08-01T02%3A53%3A38Z&sks=b&skt=2025-07-26T01%3A53%3A38Z&ske=2025-08-01T02%3A53%3A38Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=jFNtF25kJ46ytGdODXiGp%2F7pabB9KhQKZL9hCQCkyUE%3D&az=oaivgprodscus",
-    "category": "Girly",
-    "description": "Woman Moonlit Tea",
-    "timestamp": "2025-07-26T04:44:00.966Z",
-    "premium": false
-  },
-  {
     "id": "b5bed87b-21f4-4ab0-87f9-bbd6224553a5",
     "url": "https://images.pexels.com/photos/2853422/pexels-photo-2853422.jpeg?_gl=1*1s947pt*_ga*MTMyNTc1NjY4Ny4xNzUzMjAzNTQ0*_ga_8JE65Q40S6*czE3NTM1MDQ2MDYkbzYkZzEkdDE3NTM1MDUyODYkajM0JGwwJGgw",
     "category": "Animal",
@@ -221,46 +213,6 @@
     "category": "Memes",
     "description": "emma stone and the rock baby",
     "timestamp": "2025-07-26T04:50:23.558Z",
-    "premium": true
-  },
-  {
-    "id": "b501bf11-3b7e-4022-8165-4b9a27840364",
-    "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01k10ykx1me48b939b7v39ysmj%2F1753452602_img_0.webp?st=2025-07-26T03%3A44%3A44Z&se=2025-08-01T04%3A44%3A44Z&sks=b&skt=2025-07-26T03%3A44%3A44Z&ske=2025-08-01T04%3A44%3A44Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=0b6s3HIZOAr%2FS9Y1XxKzHYKNA3X51WFDnde6hxgVl8I%3D&az=oaivgprodscus",
-    "category": "Gods",
-    "description": "Karna's Solar Chariot",
-    "timestamp": "2025-07-26T04:56:58.208Z",
-    "premium": true
-  },
-  {
-    "id": "03331e20-4324-479e-93ac-13701dc660bb",
-    "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01k112c0kwec5v58afn9p43gv1%2F1753456603_img_0.webp?st=2025-07-26T02%3A50%3A37Z&se=2025-08-01T03%3A50%3A37Z&sks=b&skt=2025-07-26T02%3A50%3A37Z&ske=2025-08-01T03%3A50%3A37Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=dtgfb4GF1IV2ZE8s%2FMdF8q%2BrH2wqnfaj0Cllj1odm2k%3D&az=oaivgprodscus",
-    "category": "Gods",
-    "description": "Lord Shiva's cosmic presence",
-    "timestamp": "2025-07-26T04:58:02.730Z",
-    "premium": true
-  },
-  {
-    "id": "866781b2-57bf-42a4-9a1a-8b36deb0c6d8",
-    "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01k0v900mtfyja0mvk9jefdx6n%2F1753262166_img_0.webp?st=2025-07-26T03%3A42%3A45Z&se=2025-08-01T04%3A42%3A45Z&sks=b&skt=2025-07-26T03%3A42%3A45Z&ske=2025-08-01T04%3A42%3A45Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=3NRg5kKoAVb%2FCpFncz%2FQTpYOWfSkV%2BbQyCGCqO%2B6H1k%3D&az=oaivgprodscus",
-    "category": "Girly",
-    "description": "Gala Années",
-    "timestamp": "2025-07-26T04:58:59.356Z",
-    "premium": false
-  },
-  {
-    "id": "6ae9582f-add5-45fd-b468-666baa5f310d",
-    "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01k0zfkw8cfbnvranbfvftear1%2F1753403365_img_0.webp?st=2025-07-26T03%3A42%3A45Z&se=2025-08-01T04%3A42%3A45Z&sks=b&skt=2025-07-26T03%3A42%3A45Z&ske=2025-08-01T04%3A42%3A45Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=G8H3vMFkT%2F8XnGi7NRmKVK3FReGgdElWSquWl8hOnd8%3D&az=oaivgprodscus",
-    "category": "Girly",
-    "description": "Retro Coquette Bedroom Vibes",
-    "timestamp": "2025-07-26T04:59:43.857Z",
-    "premium": true
-  },
-  {
-    "id": "2a213da6-f181-4aa4-a21e-5ff5f3836712",
-    "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01k111xyx6fsb81fb6v1fhv7k6%2F1753456017_img_1.webp?st=2025-07-26T03%3A45%3A37Z&se=2025-08-01T04%3A45%3A37Z&sks=b&skt=2025-07-26T03%3A45%3A37Z&ske=2025-08-01T04%3A45%3A37Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=txiwiDlcRQj7MEcZCPHlmnB0F4ujUlAClpweuQ194Us%3D&az=oaivgprodscus",
-    "category": "Premium",
-    "description": "Krishna's Oceanic Eyes",
-    "timestamp": "2025-07-26T05:00:57.966Z",
     "premium": true
   },
   {
@@ -394,7 +346,7 @@
   {
     "id": "ef1a55ea-6c6f-42a1-89ec-2343d3f79036",
     "url": "https://cdn.pixabay.com/photo/2022/05/08/18/13/cat-7182671_1280.jpg",
-    "category": "Anime",
+    "category": "Animal",
     "description": "cat outdoors gray cat feline",
     "timestamp": "2025-07-31T04:25:28.342Z",
     "premium": false
