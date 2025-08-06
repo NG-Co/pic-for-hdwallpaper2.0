@@ -758,7 +758,9 @@
                                 <p class="font-semibold text-gray-800">${wallpaper.category}</p>
                                 <p class="text-gray-600 text-sm">${wallpaper.description}</p>
                                 <p class="text-gray-400 text-xs">Added: ${new Date(wallpaper.timestamp).toLocaleDateString()}</p>
-                                <p class="text-blue-600 text-xs break-all">${wallpaper.url.substring(0, 80)}${wallpaper.url.length > 80 ? '...' : ''}</p>
+<a href="${wallpaper.url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 text-xs break-all">
+  ${wallpaper.url.length > 80 ? wallpaper.url.substring(0, 80) + '...' : wallpaper.url}
+</a>
                             </div>
                             <button onclick="deleteWallpaper('${wallpaper.id}')" 
                                     class="btn btn-danger text-xs px-2 py-1 ml-2">Delete</button>
