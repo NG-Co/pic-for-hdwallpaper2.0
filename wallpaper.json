@@ -592,14 +592,6 @@
     "premium": false
   },
   {
-    "id": "b373ec4b-6db0-4b4d-b26d-00d45cf5596b",
-    "url": "https://cdn.pixabay.com/photo/2016/02/25/14/16/swing-1222168_1280.jpg",
-    "category": "Country",
-    "description": "swing of bamboo in nepal at dashain festival",
-    "timestamp": "2025-08-06T07:05:08.835Z",
-    "premium": false
-  },
-  {
     "id": "14f59a7a-802d-441f-8797-0e9eda944a7e",
     "url": "https://videos.openai.com/vg-assets/assets%2Ftask_01jwgvvz9ceq58pv8zpm1gdv7f%2F1748617868_img_3.webp?st=2025-08-02T03%3A41%3A11Z&se=2025-08-08T04%3A41%3A11Z&sks=b&skt=2025-08-02T03%3A41%3A11Z&ske=2025-08-08T04%3A41%3A11Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=QWmVXtLLhq1%2BoNB7d6B9q58ei1PYc0eJtsRnOsUMBVA%3D&az=oaivgprodscus",
     "category": "Premium",
@@ -613,38 +605,6 @@
     "category": "Abstract",
     "description": "neon",
     "timestamp": "2025-08-06T06:53:49.790Z",
-    "premium": false
-  },
-  {
-    "id": "6d11c3cd-8430-456a-a639-9daccf40166e",
-    "url": "https://cdn.pixabay.com/photo/2024/05/02/13/32/ai-generated-8734760_1280.jpg",
-    "category": "Astronomy",
-    "description": "nebula space universe",
-    "timestamp": "2025-08-06T06:56:37.105Z",
-    "premium": false
-  },
-  {
-    "id": "c4a45799-2dda-4c83-8b48-372e482b5e17",
-    "url": "https://cdn.pixabay.com/photo/2024/08/16/12/19/ai-generated-8973585_1280.jpg",
-    "category": "Astronomy",
-    "description": "black hole",
-    "timestamp": "2025-08-06T06:57:44.321Z",
-    "premium": false
-  },
-  {
-    "id": "c8f034ee-7528-4189-87a9-baa80f375517",
-    "url": "https://cdn.pixabay.com/photo/2024/08/16/11/47/ai-generated-8973514_1280.jpg",
-    "category": "Abstract",
-    "description": "nebula space",
-    "timestamp": "2025-08-06T06:58:21.067Z",
-    "premium": true
-  },
-  {
-    "id": "16e7bbf5-97f4-41d8-9d69-1309d78dff84",
-    "url": "https://cdn.pixabay.com/photo/2024/04/26/09/24/ai-generated-8721487_1280.jpg",
-    "category": "Astronomy",
-    "description": "nebula space",
-    "timestamp": "2025-08-06T06:59:15.968Z",
     "premium": false
   }
 ]
