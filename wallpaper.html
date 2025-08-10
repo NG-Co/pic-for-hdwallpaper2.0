@@ -581,7 +581,13 @@
             // Update preview content
             previewCategory.textContent = category || 'Not selected';
             previewDescription.textContent = description || 'No description entered';
-            previewUrl.textContent = url || 'No URL entered';
+           // ...inside updateLivePreview()...
+if (url) {
+    previewUrl.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline break-all">${url}</a>`;
+} else {
+    previewUrl.textContent = 'No URL entered';
+}
+// ...existing code...
             previewTimestamp.textContent = new Date().toISOString();
             
             // Update premium status
